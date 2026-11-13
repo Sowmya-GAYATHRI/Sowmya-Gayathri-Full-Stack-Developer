@@ -25,8 +25,7 @@ nav a:hover{color:var(--green)}
 .secondary-button{border:1px solid var(--border);color:var(--text)}.secondary-button:hover{border-color:var(--green);color:var(--green)}
 .social-links{display:flex;gap:25px;margin-top:30px;flex-wrap:wrap}.social-links a{color:var(--muted);font-size:14px}.social-links a:hover{color:var(--green)}
 .hero-visual{display:flex;flex-direction:column;gap:22px;align-items:center}
-.profile-stage{width:340px;height:300px;max-width:100%;position:relative;display:grid;place-items:center;margin:0 auto 4px}
-.photo-frame{position:relative;z-index:2;width:190px;height:190px;border-radius:50%;padding:5px;border:2px solid var(--green);overflow:hidden;box-shadow:0 0 35px rgba(0,230,160,.12)}
+.photo-frame{width:190px;height:190px;border-radius:50%;padding:5px;border:2px solid var(--green);overflow:hidden;box-shadow:0 0 35px rgba(0,230,160,.12)}
 .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center 25%;border-radius:50%}
 .terminal{width:100%;background:#0c1420;border:1px solid #26394c;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);font-family:'Fira Code',monospace}
 .terminal-header{background:#172335;padding:14px 18px;display:flex;align-items:center;gap:15px;border-bottom:1px solid var(--border)}
@@ -86,82 +85,3 @@ footer{background:#070b12;border-top:1px solid var(--border);padding:25px 0}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:950px){.nav-content{flex-wrap:wrap;justify-content:center;padding:15px 0}nav{justify-content:center;gap:15px}.hero-content{grid-template-columns:1fr;gap:40px}.hero-text{text-align:center}.hero-description{margin-left:auto;margin-right:auto}.hero-buttons,.social-links{justify-content:center}.hero-visual{max-width:550px;margin:auto;width:100%}.about-content{grid-template-columns:1fr}.skills-grid{grid-template-columns:repeat(2,1fr)}.cert-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.container{width:90%}.hero{padding:65px 0}.hero h1{font-size:35px}.hero h2{font-size:16px}.section{padding:70px 0}.section-title{font-size:29px}.skills-grid,.projects-grid{grid-template-columns:1fr}.nav-content{gap:12px}nav{gap:12px}nav a,.nav-button{font-size:11px}.terminal-body{padding:18px 12px;font-size:10px}.footer-content{flex-direction:column;text-align:center}.photo-frame{width:165px;height:165px}.search-toggle{right:16px;bottom:16px}}
-
-
-/* Colourful animated enhancement inspired by the reference portfolio */
-:root{
-  --accent-pink:#ff5cc8;
-  --accent-blue:#6b8cff;
-  --accent-purple:#a78bfa;
-}
-body{
-  background:
-    radial-gradient(ellipse at 12% 8%,rgba(107,140,255,.13),transparent 32%),
-    radial-gradient(ellipse at 88% 28%,rgba(255,92,200,.10),transparent 30%),
-    var(--background);
-  background-attachment:fixed;
-}
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;
-  background-image:radial-gradient(rgba(255,255,255,.22) .7px,transparent .7px);
-  background-size:25px 25px;
-  mask-image:linear-gradient(to bottom,black,transparent 85%);
-}
-.hero{position:relative;overflow:hidden}
-.hero::before,.hero::after{
-  content:"";position:absolute;width:280px;height:280px;border-radius:50%;
-  filter:blur(75px);opacity:.18;pointer-events:none;animation:floatGlow 9s ease-in-out infinite alternate;
-}
-.hero::before{background:var(--accent-blue);top:5%;right:5%}
-.hero::after{background:var(--accent-pink);bottom:0;left:0;animation-delay:-4s}
-@keyframes floatGlow{from{transform:translate3d(0,0,0) scale(.85)}to{transform:translate3d(35px,-25px,0) scale(1.2)}}
-.welcome,.section-label{background:linear-gradient(90deg,var(--green),var(--accent-blue),var(--accent-pink));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientText 6s linear infinite}
-@keyframes gradientText{to{background-position:200% center}}
-.hero h1 span,.section-title span{
-  background:linear-gradient(100deg,var(--green),#64d9ff,var(--accent-pink),var(--accent-purple));
-  background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:gradientText 7s linear infinite;
-}
-.photo-frame{animation:photoFloat 5s ease-in-out infinite;box-shadow:0 0 25px rgba(0,230,160,.2),0 0 55px rgba(107,140,255,.13)}
-@keyframes photoFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
-.terminal,.about-card,.detail-box,.skill-card,.project-card,.timeline-content,.cert-card,.contact-card{
-  backdrop-filter:blur(10px);background:linear-gradient(145deg,rgba(20,32,50,.94),rgba(12,20,32,.94));
-}
-.skill-card,.project-card,.cert-card,.detail-box{position:relative;overflow:hidden}
-.skill-card::before,.project-card::before,.cert-card::before{
-  content:"";position:absolute;inset:0 100% 0 0;
-  background:linear-gradient(110deg,transparent,rgba(0,230,160,.08),rgba(107,140,255,.08),transparent);
-  transition:inset .55s ease;pointer-events:none
-}
-.skill-card:hover::before,.project-card:hover::before,.cert-card:hover::before{inset:0 -100% 0 0}
-.skill-icon{background:linear-gradient(135deg,rgba(0,230,160,.18),rgba(107,140,255,.2),rgba(255,92,200,.14));border:1px solid rgba(0,230,160,.22)}
-.tags span:nth-child(3n+2){color:#83a7ff;background:rgba(107,140,255,.12)}
-.tags span:nth-child(3n){color:#ff8bd8;background:rgba(255,92,200,.10)}
-.primary-button{background:linear-gradient(110deg,var(--green),#6be7ff);box-shadow:0 7px 24px rgba(0,230,160,.18)}
-.primary-button:hover{box-shadow:0 9px 30px rgba(107,140,255,.3)}
-.navbar{backdrop-filter:blur(16px)}
-nav a{position:relative}
-nav a::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;background:linear-gradient(90deg,var(--green),var(--accent-pink));transition:width .25s}
-nav a:hover::after{width:100%}
-.timeline-dot{background:linear-gradient(135deg,var(--green),var(--accent-blue));box-shadow:0 0 17px rgba(107,140,255,.5)}
-.search-toggle{background:linear-gradient(135deg,var(--green),#67d9ff,var(--accent-pink));border:0;animation:searchPulse 3s ease-in-out infinite}
-@keyframes searchPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,230,160,.24),0 8px 25px rgba(0,0,0,.35)}50%{box-shadow:0 0 0 10px rgba(0,230,160,0),0 8px 30px rgba(107,140,255,.3)}}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
-}
-
-/* Animated skill orbit around the profile photo */
-.profile-stage .photo-frame{width:178px;height:178px}
-.skill-orbit{position:absolute;inset:18px;border:1px dashed rgba(107,140,255,.42);border-radius:50%;animation:orbitSpin 22s linear infinite}
-.skill-orbit.orbit-two{inset:0;border-color:rgba(255,92,200,.35);animation-duration:30s;animation-direction:reverse}
-.skill-orbit span{position:absolute;display:inline-flex;align-items:center;justify-content:center;padding:7px 12px;border:1px solid rgba(107,140,255,.42);border-radius:999px;background:rgba(12,20,32,.94);color:#dce8ff;font:600 11px 'Fira Code',monospace;white-space:nowrap;box-shadow:0 5px 20px rgba(0,0,0,.24);animation:orbitCounter 22s linear infinite}
-.skill-orbit.orbit-two span{border-color:rgba(255,92,200,.42);color:#ffd7f1;animation-duration:30s;animation-direction:reverse}
-.orbit-one span:nth-child(1){top:-10px;left:calc(50% - 34px)}.orbit-one span:nth-child(2){right:-20px;top:48%}.orbit-one span:nth-child(3){bottom:-10px;left:calc(50% - 30px)}
-.orbit-two span:nth-child(1){top:18%;left:-24px}.orbit-two span:nth-child(2){right:-34px;top:72%}.orbit-two span:nth-child(3){bottom:12%;left:-12px}
-.orbit-caption{position:absolute;bottom:2px;color:var(--muted);font:10px 'Fira Code',monospace;letter-spacing:2px}
-@keyframes orbitSpin{to{transform:rotate(360deg)}}@keyframes orbitCounter{to{transform:rotate(-360deg)}}
-@media(max-width:600px){.profile-stage{width:300px;height:270px}.profile-stage .photo-frame{width:155px;height:155px}.skill-orbit{inset:18px}.skill-orbit.orbit-two{inset:0}.skill-orbit span{font-size:10px;padding:6px 9px}}
-@media(prefers-reduced-motion:reduce){.skill-orbit,.skill-orbit span{animation:none}}
