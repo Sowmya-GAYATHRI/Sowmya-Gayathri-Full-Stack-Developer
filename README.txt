@@ -1,4 +1,4 @@
-SOWMYA GAYATHRI PORTFOLIO - ANIMATED VERSION
+SOWMYA GAYATHRI PORTFOLIO 
 
 Included files:
 - index.html: portfolio structure and content
